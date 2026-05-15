@@ -4,29 +4,98 @@
 
 Продолжить проект 3TestAgents как document-first AI Skill Infrastructure без преждевременного runtime/backend/automation.
 
+Система должна оставаться:
+- repository-first;
+- governance-driven;
+- tool-neutral;
+- review-based;
+- knowledge-preserving.
+
 ## Текущее состояние
 
 Репозиторий:
 https://github.com/oleg3479881328-code/3TestAgents
 
+### Workflow Layer
+
 Создано:
-- workflow-runs/001-first-run-template.md
-- workflow-runs/002-ai-skill-system-run.md
-- docs/SKILL_SPEC.md
-- docs/LIFECYCLE.md
-- docs/REVIEW_PROCESS.md
-- docs/COMPATIBILITY_MODEL.md
-- skills/registry.md
-- skills/PROJECT_INDEX.md
-- skills/research/github-repository-research/SKILL.md
-- skills/research/github-repository-research/references.md
-- skills/research/github-repository-research/validation/REVIEW.md
-- knowledge-library/README.md
-- knowledge-library/PROJECT_INDEX.md
-- knowledge-library/patterns/document-first-mvp.md
-- knowledge-library/patterns/tool-neutral-core.md
-- knowledge-library/patterns/state-separation-in-ai-systems.md
-- logs/WORKFLOW_LOG.md
+- `workflow-runs/001-first-run-template.md`
+- `workflow-runs/002-ai-skill-system-run.md`
+
+Workflow Run 002:
+- восстановлен как полноценный compact full record;
+- больше не содержит `[unchanged]` placeholders;
+- содержит все workflow stages:
+  - Pre-Architect
+  - Research Agent
+  - Architect
+  - Coder-Spec
+  - Reviewer
+  - Librarian
+
+### Specification Layer
+
+Создано:
+- `docs/SKILL_SPEC.md`
+- `docs/LIFECYCLE.md`
+- `docs/REVIEW_PROCESS.md`
+- `docs/COMPATIBILITY_MODEL.md`
+
+### Skill Layer
+
+Создано:
+- `skills/research/github-repository-research/SKILL.md`
+- `skills/research/github-repository-research/references.md`
+- `skills/research/github-repository-research/validation/REVIEW.md`
+
+Текущее состояние первого skill:
+- status: `candidate`
+- review_status:
+  `reviewed_with_required_improvements`
+- version:
+  `0.1.1`
+
+Skill усилен:
+- evidence rules;
+- pattern scoring model;
+- adaptation rules;
+- strict output format;
+- stronger validation.
+
+### Governance Layer
+
+Создано:
+- `skills/registry.md`
+- `skills/PROJECT_INDEX.md`
+
+Registry tracking включает:
+- lifecycle state;
+- review state;
+- compatibility;
+- versioning;
+- governance rules.
+
+### Knowledge Layer
+
+Создано:
+- `knowledge-library/README.md`
+- `knowledge-library/PROJECT_INDEX.md`
+- `knowledge-library/patterns/document-first-mvp.md`
+- `knowledge-library/patterns/tool-neutral-core.md`
+- `knowledge-library/patterns/state-separation-in-ai-systems.md`
+
+### Logging Layer
+
+Создано:
+- `logs/WORKFLOW_LOG.md`
+
+Log фиксирует:
+- workflow execution history;
+- architectural decisions;
+- governance decisions;
+- resulting repository states;
+- risks;
+- lessons learned.
 
 ## Подтверждённые решения
 
@@ -35,33 +104,61 @@ https://github.com/oleg3479881328-code/3TestAgents
 3. Tool-neutral core with adapters later.
 4. Skill = folder-based unit with SKILL.md.
 5. No skill becomes active without review.
-6. First skill candidate: github-repository-research.
-7. Current skill status: candidate.
-8. Current review_status: reviewed_with_required_improvements.
-9. Knowledge Library stores reusable patterns, not executable skills.
-10. Registry is mandatory before skill growth.
+6. Registry mandatory before scale.
+7. Knowledge Library separate from executable skills.
+8. Generated vs committed vs reviewed vs active state separation.
+9. Governance before growth.
+10. Atomic skills first.
+11. Reuse-first open-source research workflow.
+12. Repository artifacts are canonical executed state.
 
 ## Ограничения / запреты
 
-- No backend.
-- No frontend.
-- No runtime engine.
-- No automation layer.
-- No vector DB.
-- No semantic search.
-- No marketplace.
-- No mass skill creation.
-- No fake execution claims.
-- No active skill without review.
+Still forbidden:
+- backend;
+- frontend;
+- runtime engine;
+- orchestration layer;
+- automation layer;
+- vector DB;
+- semantic search;
+- marketplace;
+- mass skill creation;
+- fake execution claims.
 
 ## Что НЕ делать
 
-- Не создавать второй skill сейчас.
-- Не строить runtime.
-- Не уходить в Codex/local execution.
+- Не строить runtime сейчас.
+- Не подключать automation.
+- Не уходить в Codex execution layer.
+- Не плодить десятки skills.
 - Не расширять архитектуру ради архитектуры.
 - Не превращать repository в prompt dump.
+- Не обходить review process.
+
+## Главные риски
+
+1. Prompt dump degeneration.
+2. Premature runtime expansion.
+3. Vendor lock-in.
+4. Governance collapse during scaling.
+5. Fake execution claims.
+6. Overengineering before validation.
+
+## Текущая фаза проекта
+
+Phase:
+Document-first AI Skill Infrastructure.
+
+Subphase:
+Governance stabilization and first skill validation.
 
 ## Следующий шаг — один
 
-Усилить первый skill candidate до состояния approved: обновить github-repository-research/SKILL.md по REVIEW.md, затем повторно провести review и только после этого решить, можно ли перевести skill в active.
+Провести второй review cycle для:
+`skills/research/github-repository-research/SKILL.md`
+
+Цель:
+решить, можно ли перевести первый skill из `candidate` в `active`.
+
+Никакие новые skills не создавать до завершения этого review cycle.
