@@ -9,7 +9,7 @@ Execution state:
 - No code has been written.
 - No implementation has been tested.
 - No automation has been added.
-- Current stage: Research Agent completed.
+- Current stage: Architect completed.
 
 Purpose:
 Run the first real document-first agent workflow for the AI Skill System concept.
@@ -323,3 +323,212 @@ The next architecture step should define:
 - review process;
 - compatibility/adaptation strategy;
 - first atomic skill candidate.
+
+---
+
+## 4. Architect Output
+
+Role:
+Architect
+
+Responsibility:
+Design the system or workflow at the architecture level.
+
+### Architecture Summary
+
+The AI Skill System should be a document-first GitHub framework for capturing, reviewing, organizing, and reusing AI workflows as portable skill units.
+
+The MVP is not a runtime, app, backend, UI, marketplace, or automation layer. The MVP is a committed specification set and one first skill candidate.
+
+### Core Architecture
+
+#### Component 1 — Skill Unit
+
+A skill is one focused reusable workflow stored as a folder.
+
+Required files:
+- SKILL.md
+- references.md
+
+Optional future folders:
+- examples/
+- validation/
+- assets/
+- scripts/
+
+#### Component 2 — Skill Registry
+
+A registry lists available skills and their metadata.
+
+MVP form:
+Markdown index.
+
+Future form:
+YAML, JSON, SQLite, or searchable index.
+
+#### Component 3 — Lifecycle Model
+
+Skill statuses:
+- draft
+- candidate
+- reviewed
+- active
+- deprecated
+- retired
+
+A skill must not become active without review.
+
+#### Component 4 — Review Process
+
+Every skill must be checked for:
+- clear task boundary;
+- defined inputs;
+- defined outputs;
+- source attribution;
+- compatibility notes;
+- failure modes;
+- validation checklist;
+- no fake execution claims.
+
+#### Component 5 — Adapter Layer
+
+The core skill format stays tool-neutral.
+
+Future adapters can generate:
+- Claude-compatible skills;
+- Codex-compatible skills;
+- ChatGPT Custom GPT instructions;
+- project-specific agent prompts.
+
+#### Component 6 — Knowledge Library
+
+The knowledge library stores reusable patterns, rules, and architectural lessons.
+
+Difference:
+A skill is an executable workflow instruction.
+A knowledge-library record is reusable knowledge that may later become part of a skill.
+
+### Proposed Future Repository Structure
+
+```text
+ai-skill-system/
+  README.md
+  PROJECT_INDEX.md
+  docs/
+    SKILL_SPEC.md
+    LIFECYCLE.md
+    REVIEW_PROCESS.md
+    COMPATIBILITY_MODEL.md
+  skills/
+    research/
+      github-repository-research/
+        SKILL.md
+        references.md
+        examples/
+        validation/
+    architecture/
+    coding/
+    review/
+    documentation/
+    automation/
+    business/
+    design/
+  adapters/
+    claude/
+    codex/
+    chatgpt/
+  workflow-runs/
+  knowledge-library/
+  logs/
+```
+
+### Proposed SKILL.md Minimum Metadata
+
+```yaml
+---
+name: github-repository-research
+description: Research a GitHub repository and extract reusable architecture and workflow patterns.
+category: research
+status: draft
+target_agent: tool-neutral
+compatibility:
+  - chatgpt
+  - codex
+  - claude
+inputs:
+  - repository_url
+  - user_goal
+outputs:
+  - research_summary
+  - reusable_patterns
+  - risks
+  - recommended_next_step
+safety_level: low
+source: internal
+review_status: not_reviewed
+version: 0.1.0
+---
+```
+
+Required body sections:
+- Purpose
+- When to Use
+- Inputs
+- Outputs
+- Workflow
+- Constraints
+- Failure Modes
+- Validation Checklist
+- References
+
+### Data Flow
+
+```text
+Raw idea or conversation
+  -> Pre-Architect structured concept
+  -> Research Agent pattern search
+  -> Architect skill-system design
+  -> Coder-Spec implementation file tasks
+  -> Reviewer quality audit
+  -> Librarian reusable pattern extraction
+  -> approved skill candidate
+```
+
+### State Model
+
+Generated state:
+Proposed by an AI agent but not committed.
+
+Committed state:
+Written to GitHub.
+
+Reviewed state:
+Checked by Reviewer Agent or human reviewer.
+
+Active state:
+Approved for reuse.
+
+### First Atomic Skill Candidate
+
+First skill candidate:
+`github-repository-research`
+
+Reason:
+The AI Skill System depends on analyzing external GitHub repositories before creating or adapting new skills.
+
+Future path:
+`skills/research/github-repository-research/SKILL.md`
+
+### Architecture Decision
+
+The AI Skill System must start as a tool-neutral, folder-based, GitHub-managed skill framework.
+
+The next workflow stage should be Coder-Spec Agent Output, but still document-only.
+
+Coder-Spec must define the exact files to create:
+- docs/SKILL_SPEC.md
+- docs/LIFECYCLE.md
+- docs/REVIEW_PROCESS.md
+- docs/COMPATIBILITY_MODEL.md
+- skills/research/github-repository-research/SKILL.md
+- skills/research/github-repository-research/references.md
