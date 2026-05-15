@@ -9,7 +9,7 @@ Execution state:
 - No code has been written.
 - No implementation has been tested.
 - No automation has been added.
-- Current stage: Architect completed.
+- Current stage: Coder-Spec completed.
 
 Purpose:
 Run the first real document-first agent workflow for the AI Skill System concept.
@@ -532,3 +532,224 @@ Coder-Spec must define the exact files to create:
 - docs/COMPATIBILITY_MODEL.md
 - skills/research/github-repository-research/SKILL.md
 - skills/research/github-repository-research/references.md
+
+---
+
+## 5. Coder-Spec Agent Output
+
+Role:
+Coder-Spec Agent
+
+Responsibility:
+Convert the architecture into implementation-ready file tasks.
+
+Important:
+This is still document-first work. This output does not authorize application code, backend code, runtime setup, automation, or local execution.
+
+### Implementation Task Spec
+
+#### Task Title
+
+Create AI Skill System document specification set and first skill candidate.
+
+#### Goal
+
+Create the first committed document set that defines the AI Skill System as a reusable, tool-neutral, folder-based skill framework.
+
+The output should make the next repository state explicit enough that a human or Codex can create the files without inventing structure.
+
+#### Files to Create or Edit
+
+Create these files:
+
+1. `docs/SKILL_SPEC.md`
+2. `docs/LIFECYCLE.md`
+3. `docs/REVIEW_PROCESS.md`
+4. `docs/COMPATIBILITY_MODEL.md`
+5. `skills/research/github-repository-research/SKILL.md`
+6. `skills/research/github-repository-research/references.md`
+
+Optional later files, not in this task:
+- `skills/README.md`
+- `skills/registry.md`
+- `adapters/README.md`
+- `knowledge-library/skill-patterns.md`
+
+#### File 1 — docs/SKILL_SPEC.md
+
+Purpose:
+Define what a skill is in this system.
+
+Required sections:
+- Definition
+- Skill Folder Structure
+- Required Files
+- Optional Files
+- Required Metadata
+- Required Body Sections
+- Naming Rules
+- Quality Rules
+- What Is Not a Skill
+
+Minimum decision:
+A skill is a focused reusable AI workflow stored as a folder with a primary `SKILL.md` file and source references.
+
+#### File 2 — docs/LIFECYCLE.md
+
+Purpose:
+Define lifecycle states and allowed transitions.
+
+Required statuses:
+- draft
+- candidate
+- reviewed
+- active
+- deprecated
+- retired
+
+Required sections:
+- Status Definitions
+- Transition Rules
+- Promotion Criteria
+- Deprecation Criteria
+- Retirement Criteria
+- Generated vs Committed vs Reviewed vs Active State
+
+Minimum decision:
+No skill can become active without review.
+
+#### File 3 — docs/REVIEW_PROCESS.md
+
+Purpose:
+Define how skills are reviewed before reuse.
+
+Required sections:
+- Review Purpose
+- Review Checklist
+- Required Evidence
+- Failure Conditions
+- Approval Rules
+- Reviewer Output Format
+
+Minimum checklist:
+- clear task boundary;
+- defined inputs;
+- defined outputs;
+- source attribution;
+- compatibility notes;
+- failure modes;
+- validation checklist;
+- no fake execution claims.
+
+#### File 4 — docs/COMPATIBILITY_MODEL.md
+
+Purpose:
+Define tool-neutral core and future adapter targets.
+
+Required sections:
+- Tool-Neutral Core
+- Claude Compatibility
+- Codex Compatibility
+- ChatGPT Compatibility
+- Project-Specific Agent Compatibility
+- Adapter Rules
+- Out-of-Scope Runtime Rules
+
+Minimum decision:
+The core skill format must remain tool-neutral. Claude, Codex, and ChatGPT outputs are adapters, not the source of truth.
+
+#### File 5 — skills/research/github-repository-research/SKILL.md
+
+Purpose:
+Create the first atomic skill candidate.
+
+Required metadata:
+- name: github-repository-research
+- description: Research a GitHub repository and extract reusable architecture and workflow patterns.
+- category: research
+- status: draft
+- target_agent: tool-neutral
+- compatibility: chatgpt, codex, claude
+- inputs: repository_url, user_goal
+- outputs: research_summary, reusable_patterns, risks, recommended_next_step
+- safety_level: low
+- source: internal
+- review_status: not_reviewed
+- version: 0.1.0
+
+Required body sections:
+- Purpose
+- When to Use
+- Inputs
+- Outputs
+- Workflow
+- Constraints
+- Failure Modes
+- Validation Checklist
+- References
+
+Minimum workflow:
+1. Read the repository README and structure.
+2. Identify the project purpose.
+3. Identify reusable architecture or workflow patterns.
+4. Separate facts from assumptions.
+5. Extract patterns that can be adapted.
+6. Produce a short recommendation.
+
+#### File 6 — skills/research/github-repository-research/references.md
+
+Purpose:
+List source repositories and inspiration references.
+
+Required references:
+- Anthropic Skills repository
+- OpenAI Skills repository
+- Antigravity Awesome Skills catalog
+- VoltAgent Awesome Agent Skills catalog
+- JayLZhou Awesome Agent Skills catalog
+
+### Required Behavior
+
+The implementation must:
+- create only documentation and skill candidate files;
+- keep all files in Markdown;
+- avoid app code;
+- avoid runtime code;
+- avoid automation scripts;
+- preserve tool-neutral language;
+- mark the first skill as `draft`, not `active`;
+- keep source attribution visible.
+
+### Acceptance Criteria
+
+The task is accepted only if:
+- all six required files exist;
+- `SKILL_SPEC.md` defines the internal skill format;
+- `LIFECYCLE.md` defines statuses and transitions;
+- `REVIEW_PROCESS.md` defines review checklist and approval rules;
+- `COMPATIBILITY_MODEL.md` separates core format from adapters;
+- first skill candidate exists at `skills/research/github-repository-research/SKILL.md`;
+- first skill candidate status is `draft`;
+- no application code is added.
+
+### Forbidden Actions
+
+Do not:
+- create backend code;
+- create frontend code;
+- create scripts;
+- create automation;
+- install dependencies;
+- claim any skill is active before review;
+- create multiple skill candidates at once;
+- build adapter generators yet.
+
+### Expected Output
+
+A committed documentation-first specification set for the AI Skill System plus one draft skill candidate.
+
+### Coder-Spec Decision
+
+The next executed repository change should create the six documentation/skill files listed above.
+
+This should be done as one small document-only commit.
