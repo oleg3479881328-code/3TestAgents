@@ -2,14 +2,16 @@
 
 ## 0. Run Status
 
-Status: librarian-stage
+Status: completed-record-restored
 
 Execution state:
 - This file is a real workflow run, not a template.
-- No code has been written.
-- No implementation has been tested.
-- No automation has been added.
-- Current stage: Librarian completed.
+- No application code was written.
+- No local runtime was created.
+- No backend was created.
+- No frontend was created.
+- No automation layer was added.
+- This record summarizes the full document-first workflow run.
 
 Purpose:
 Run the first real document-first agent workflow for the AI Skill System concept.
@@ -22,35 +24,324 @@ Run the first real document-first agent workflow for the AI Skill System concept
 
 AI Skill System
 
+### Problem
+
+Modern AI work often stays trapped in temporary chats. Strong prompts, workflows, research methods, review logic, artifact formats, and agent behaviors are lost instead of becoming reusable operational assets.
+
+### Desired Result
+
+Create a document-first AI Skill System that captures useful AI workflows as reusable, reviewable, tool-neutral skill units.
+
+### MVP Boundary
+
+In scope:
+- define the skill model;
+- define lifecycle governance;
+- define review rules;
+- define compatibility model;
+- create the first draft skill candidate;
+- create registry and knowledge-library structures.
+
+Out of scope:
+- Codex execution;
+- local runtime;
+- backend;
+- frontend;
+- automation;
+- vector database;
+- semantic search;
+- marketplace.
+
 ---
 
 ## 2. Pre-Architect Output
 
-[unchanged]
+Role:
+Pre-Architect
+
+Responsibility:
+Convert the raw idea into a structured concept brief.
+
+### Structured Concept Brief
+
+Project name:
+AI Skill System
+
+Primary user:
+An AI operator using ChatGPT, Codex, Claude, GitHub, and project repositories to build repeatable AI-powered workflows.
+
+Main use case:
+The user completes a useful AI workflow once, then turns it into a reusable skill.
+
+Core value:
+Convert temporary AI work into permanent reusable operational knowledge.
+
+Required inputs:
+- raw chat conversations;
+- successful prompts;
+- agent instructions;
+- GitHub repository links;
+- open-source skill examples;
+- workflow descriptions;
+- project rules;
+- reusable output formats;
+- user corrections and lessons learned.
+
+Required outputs:
+- skill files;
+- workflow templates;
+- agent instruction blocks;
+- reusable research methods;
+- output contracts;
+- review checklists;
+- project-specific skill libraries;
+- global reusable patterns.
+
+### Pre-Architect Decision
+
+The AI Skill System should start as a document-first repository framework, not as software.
+
+The first concrete output should be a stable skill specification format and repository structure.
 
 ---
 
 ## 3. Research Agent Output
 
-[unchanged]
+Role:
+Research Agent
+
+Responsibility:
+Search for existing reusable patterns, open-source examples, documentation, and architecture ideas before designing from scratch.
+
+### Research References
+
+Reviewed reference families:
+- Anthropic Skills repository;
+- OpenAI Skills repository;
+- Antigravity Awesome Skills catalog;
+- VoltAgent Awesome Agent Skills catalog;
+- JayLZhou Awesome Agent Skills catalog.
+
+### Key Findings
+
+#### Finding 1 — Folder-based skill unit
+
+Existing strong patterns use a folder-based skill model with a primary instruction file such as `SKILL.md`.
+
+Implication:
+The AI Skill System should use a folder-based skill unit.
+
+#### Finding 2 — Tool-neutral portability
+
+Skills should not be locked to one vendor format.
+
+Implication:
+The internal format should be tool-neutral, with adapters later.
+
+#### Finding 3 — Governance problem
+
+Large skill collections become unusable without metadata, lifecycle status, review state, and registry tracking.
+
+Implication:
+Governance must exist before scale.
+
+#### Finding 4 — Lifecycle model
+
+The system needs create, review, index, reuse, improve, deprecate, and retire stages.
+
+Implication:
+A skill lifecycle must be documented before creating many skills.
+
+### Research Agent Decision
+
+Adopt a tool-neutral folder-based skill model inspired by existing open-source skill repositories, but add stronger lifecycle governance, review controls, registry tracking, and knowledge-library extraction.
 
 ---
 
 ## 4. Architect Output
 
-[unchanged]
+Role:
+Architect
+
+Responsibility:
+Design the system at the architecture level.
+
+### Architecture Summary
+
+The AI Skill System is a document-first GitHub framework for capturing, reviewing, organizing, and reusing AI workflows as portable skill units.
+
+The MVP is not a runtime system. It is a specification set, governance model, registry, knowledge library, and one first skill candidate.
+
+### Core Components
+
+#### Component 1 — Skill Unit
+
+A skill is one focused reusable workflow stored as a folder.
+
+Required files:
+- `SKILL.md`
+- `references.md`
+
+Optional future folders:
+- `examples/`
+- `validation/`
+- `assets/`
+- `scripts/`
+
+#### Component 2 — Skill Registry
+
+A registry tracks skills, lifecycle status, review status, compatibility, version, and path.
+
+#### Component 3 — Lifecycle Model
+
+Skill statuses:
+- draft;
+- candidate;
+- reviewed;
+- active;
+- deprecated;
+- retired.
+
+#### Component 4 — Review Process
+
+Every skill must be checked before activation.
+
+Review must verify:
+- clear task boundary;
+- inputs;
+- outputs;
+- source attribution;
+- compatibility notes;
+- failure modes;
+- validation checklist;
+- no fake execution claims.
+
+#### Component 5 — Compatibility Model
+
+The core skill format is tool-neutral.
+
+Future adapters may generate:
+- Claude-compatible skills;
+- Codex-compatible skills;
+- ChatGPT Custom GPT instructions;
+- project-specific agent prompts.
+
+#### Component 6 — Knowledge Library
+
+The knowledge library stores reusable patterns, decisions, anti-patterns, and workflow lessons. It is separate from executable skills.
+
+### First Atomic Skill Candidate
+
+`github-repository-research`
+
+Reason:
+The AI Skill System depends on analyzing external repositories before creating or adapting new skills.
+
+### Architecture Decision
+
+Start with a GitHub-based, Markdown-first, tool-neutral, folder-based skill framework.
+
+No runtime before the first reviewed skill.
 
 ---
 
 ## 5. Coder-Spec Agent Output
 
-[unchanged]
+Role:
+Coder-Spec Agent
+
+Responsibility:
+Convert architecture into implementation-ready file tasks.
+
+### Implementation Task Spec
+
+Task title:
+Create AI Skill System document specification set and first skill candidate.
+
+Required files:
+- `docs/SKILL_SPEC.md`
+- `docs/LIFECYCLE.md`
+- `docs/REVIEW_PROCESS.md`
+- `docs/COMPATIBILITY_MODEL.md`
+- `skills/research/github-repository-research/SKILL.md`
+- `skills/research/github-repository-research/references.md`
+
+Additional governance files created during execution:
+- `skills/registry.md`
+- `skills/PROJECT_INDEX.md`
+- `knowledge-library/README.md`
+- `knowledge-library/PROJECT_INDEX.md`
+- `logs/WORKFLOW_LOG.md`
+- `docs/MIGRATION_SNAPSHOT.md`
+
+### Acceptance Criteria
+
+Accepted only if:
+- all required specification files exist;
+- first skill candidate exists;
+- first skill is not marked active before review;
+- registry exists;
+- review record exists;
+- knowledge-library exists;
+- no application code is added.
+
+### Coder-Spec Decision
+
+Create the document-first specification set and one draft skill candidate. Do not create runtime, backend, frontend, automation, or adapter generators.
 
 ---
 
 ## 6. Reviewer Output
 
-[unchanged]
+Role:
+Reviewer
+
+Responsibility:
+Audit outputs for contradictions, scope creep, weak assumptions, governance risks, and MVP violations.
+
+### Review Summary
+
+The workflow follows the document-first MVP boundary.
+
+No backend, runtime, frontend, automation, vector database, or semantic search was added.
+
+### Strengths
+
+- Correct MVP boundary.
+- Tool-neutral architecture.
+- Governance before scale.
+- Atomic first skill candidate.
+- Repository as source of truth.
+- Separation of generated, committed, reviewed, and active states.
+
+### Critical Risks
+
+#### Risk 1 — Prompt dump degeneration
+
+Without registry and review process, the system can become a pile of random prompts.
+
+Mitigation:
+Every skill must have lifecycle status, review status, and registry entry.
+
+#### Risk 2 — Premature runtime expansion
+
+The project may drift into runtime, backend, automation, vector search, or dashboards too early.
+
+Mitigation:
+No runtime before first reviewed skill.
+
+#### Risk 3 — Vendor lock-in
+
+A Claude-only or Codex-only format would reduce portability.
+
+Mitigation:
+Tool-neutral core with adapters later.
+
+### Reviewer Decision
+
+Approved for document-only repository artifact creation.
+
+Do not expand architecture further before stabilizing the first skill.
 
 ---
 
@@ -64,101 +355,23 @@ Extract reusable system knowledge, operational rules, architectural patterns, an
 
 ### Extracted Reusable Patterns
 
-#### Pattern 1 — Document-first before runtime
-
-Description:
-Do not build runtime systems, automation, orchestration engines, databases, or UI layers before the workflow and repository model prove useful.
-
-Reason:
-Premature implementation creates architectural drift and unstable abstractions.
-
-Recommended permanence:
-Core system rule.
-
-#### Pattern 2 — Tool-neutral core with adapters
-
-Description:
-The internal skill format must stay independent from Claude, Codex, ChatGPT, Cursor, Gemini CLI, or any single AI ecosystem.
-
-Reason:
-Vendor lock-in reduces portability and long-term stability.
-
-Recommended permanence:
-Core architecture rule.
-
-#### Pattern 3 — Folder-based skill unit
-
-Description:
-A skill is stored as a directory containing a primary `SKILL.md` file and optional support resources.
-
-Reason:
-This structure matches successful patterns already used by Anthropic and OpenAI while remaining simple and extensible.
-
-Recommended permanence:
-Primary storage convention.
-
-#### Pattern 4 — Lifecycle governance before scaling
-
-Description:
-Every skill must have lifecycle state, review state, and validation criteria before large-scale skill accumulation begins.
-
-Reason:
-Without governance, the repository becomes a prompt dump.
-
-Recommended permanence:
-Mandatory repository governance rule.
-
-#### Pattern 5 — Atomic skills first
-
-Description:
-The first skills must remain small and focused.
-
-Reason:
-Small skills validate architecture faster and reduce complexity.
-
-Recommended permanence:
-Default skill design principle.
-
-#### Pattern 6 — Reuse-first research workflow
-
-Description:
-Before inventing a new workflow or skill, the system must inspect existing open-source repositories and extract reusable patterns.
-
-Reason:
-Most useful workflow primitives already exist somewhere in open source.
-
-Recommended permanence:
-Mandatory workflow rule.
-
-#### Pattern 7 — Generated vs committed vs reviewed vs active state separation
-
-Description:
-The system must distinguish:
-- generated state;
-- committed state;
-- reviewed state;
-- active state.
-
-Reason:
-AI systems frequently hallucinate execution or blur proposed work with executed work.
-
-Recommended permanence:
-Critical operational invariant.
+1. Document-first before runtime.
+2. Tool-neutral core with adapters.
+3. Folder-based skill unit.
+4. Lifecycle governance before scaling.
+5. Atomic skills first.
+6. Reuse-first research workflow.
+7. Generated vs committed vs reviewed vs active state separation.
 
 ### Reusable Repository Decisions
 
 #### Decision 1 — First skill candidate
 
-The first official skill candidate should be:
-
 `github-repository-research`
-
-Reason:
-This skill has the highest leverage because the entire AI Skill System depends on extracting reusable patterns from external repositories.
 
 #### Decision 2 — First committed specification set
 
-The first repository build phase should create exactly:
+The first specification set includes:
 - `docs/SKILL_SPEC.md`
 - `docs/LIFECYCLE.md`
 - `docs/REVIEW_PROCESS.md`
@@ -166,35 +379,50 @@ The first repository build phase should create exactly:
 - `skills/research/github-repository-research/SKILL.md`
 - `skills/research/github-repository-research/references.md`
 
-Reason:
-This is the minimum viable specification layer.
+#### Decision 3 — No runtime before reviewed skill
 
-#### Decision 3 — No runtime before first reviewed skill
-
-No runtime, orchestration engine, automation layer, or local execution should be built before the first skill successfully passes review.
-
-Reason:
-The architecture must validate the skill model first.
-
-### Recommended Knowledge-Library Entries
-
-Future knowledge-library candidates:
-
-1. `document-first-mvp.md`
-2. `tool-neutral-skill-architecture.md`
-3. `skill-lifecycle-governance.md`
-4. `reuse-first-open-source-research.md`
-5. `state-separation-in-ai-systems.md`
-6. `atomic-skill-design.md`
+Runtime, orchestration, automation, and local execution remain forbidden until the first skill passes review.
 
 ### Librarian Decision
 
-This workflow produced multiple reusable architectural and operational patterns that should become part of the long-term AI Skill System knowledge base.
+The workflow produced reusable architectural and operational patterns that belong in the long-term knowledge library.
 
-The workflow successfully validated the following:
-- multi-agent document workflow;
-- repository-first execution model;
-- reusable skill architecture direction;
-- governance-before-scale strategy.
+---
 
-The next repository phase should move from workflow design into actual repository artifact creation using the Coder-Spec file list.
+## 8. Executed Repository Artifacts
+
+Created or updated artifacts include:
+- `workflow-runs/001-first-run-template.md`
+- `workflow-runs/002-ai-skill-system-run.md`
+- `docs/SKILL_SPEC.md`
+- `docs/LIFECYCLE.md`
+- `docs/REVIEW_PROCESS.md`
+- `docs/COMPATIBILITY_MODEL.md`
+- `skills/registry.md`
+- `skills/PROJECT_INDEX.md`
+- `skills/research/github-repository-research/SKILL.md`
+- `skills/research/github-repository-research/references.md`
+- `skills/research/github-repository-research/validation/REVIEW.md`
+- `knowledge-library/README.md`
+- `knowledge-library/PROJECT_INDEX.md`
+- `knowledge-library/patterns/document-first-mvp.md`
+- `knowledge-library/patterns/tool-neutral-core.md`
+- `knowledge-library/patterns/state-separation-in-ai-systems.md`
+- `logs/WORKFLOW_LOG.md`
+- `docs/MIGRATION_SNAPSHOT.md`
+
+---
+
+## 9. Run Closure
+
+Final status:
+Workflow Run 002 completed as a restored compact full record.
+
+Accepted output:
+Document-first AI Skill Infrastructure foundation.
+
+Rejected output:
+Runtime, backend, UI, automation, vector search, marketplace, and mass skill creation.
+
+Next step:
+Update `docs/MIGRATION_SNAPSHOT.md` and `logs/WORKFLOW_LOG.md` to reflect PATCH v0.1.1 and the restored workflow record.
