@@ -2,14 +2,14 @@
 
 ## 0. Run Status
 
-Status: review-stage
+Status: librarian-stage
 
 Execution state:
 - This file is a real workflow run, not a template.
 - No code has been written.
 - No implementation has been tested.
 - No automation has been added.
-- Current stage: Reviewer completed.
+- Current stage: Librarian completed.
 
 Purpose:
 Run the first real document-first agent workflow for the AI Skill System concept.
@@ -21,46 +21,6 @@ Run the first real document-first agent workflow for the AI Skill System concept
 ### Raw Idea
 
 AI Skill System
-
-### Problem
-
-Modern AI tools can perform powerful work, but users often lose good workflows because the process stays inside temporary chats.
-
-Good prompts, repeated workflows, useful agent behaviors, research patterns, artifact formats, and execution rules are not captured as reusable operational units.
-
-As a result:
-- useful discoveries are lost;
-- successful workflows are hard to repeat;
-- different agents behave inconsistently;
-- project knowledge becomes scattered;
-- Codex, ChatGPT, Claude, and other AI tools are not coordinated through a stable skill layer.
-
-### Desired Result
-
-Create a structured AI Skill System that can capture, organize, improve, and reuse strong AI workflows as portable skills.
-
-The system should help turn successful AI interactions into repeatable skill files, agent instructions, workflow templates, research methods, output contracts, and reusable project patterns.
-
-### MVP Boundary
-
-The first version is document-first only.
-
-In scope:
-- define what an AI skill is;
-- define the lifecycle of a skill;
-- define repository structure;
-- define how skills are discovered, reviewed, stored, reused, and improved;
-- define how existing open-source skill repositories can be analyzed and adapted;
-- create implementation-ready specifications later, but not code yet.
-
-Out of scope:
-- no local runtime;
-- no Codex execution;
-- no app backend;
-- no UI;
-- no automation layer;
-- no marketplace;
-- no production deployment.
 
 ---
 
@@ -90,122 +50,151 @@ Out of scope:
 
 ## 6. Reviewer Output
 
+[unchanged]
+
+---
+
+## 7. Librarian Output
+
 Role:
-Reviewer
+Librarian
 
 Responsibility:
-Audit the workflow outputs for contradictions, scope creep, weak assumptions, governance risks, and MVP violations.
+Extract reusable system knowledge, operational rules, architectural patterns, and reusable workflows discovered during the workflow run.
 
-### Review Summary
+### Extracted Reusable Patterns
 
-The workflow is internally consistent and follows the document-first MVP boundary.
+#### Pattern 1 — Document-first before runtime
 
-The project now has:
-- concept definition;
-- research foundation;
-- architectural structure;
-- implementation-ready documentation tasks.
+Description:
+Do not build runtime systems, automation, orchestration engines, databases, or UI layers before the workflow and repository model prove useful.
 
-The current workflow does NOT violate the MVP rule because:
-- no backend code exists;
-- no runtime exists;
-- no automation exists;
-- no fake execution claims were made;
-- all executed states are tied to GitHub commits.
+Reason:
+Premature implementation creates architectural drift and unstable abstractions.
 
-### Major Strengths
+Recommended permanence:
+Core system rule.
 
-#### Strength 1 — Correct MVP boundary
+#### Pattern 2 — Tool-neutral core with adapters
 
-The workflow correctly delays runtime, automation, and backend development.
+Description:
+The internal skill format must stay independent from Claude, Codex, ChatGPT, Cursor, Gemini CLI, or any single AI ecosystem.
 
-This significantly reduces architectural drift.
+Reason:
+Vendor lock-in reduces portability and long-term stability.
 
-#### Strength 2 — Tool-neutral architecture
+Recommended permanence:
+Core architecture rule.
 
-The system avoids vendor lock-in by keeping the internal skill format independent from Claude, Codex, or ChatGPT.
+#### Pattern 3 — Folder-based skill unit
 
-#### Strength 3 — Governance included early
+Description:
+A skill is stored as a directory containing a primary `SKILL.md` file and optional support resources.
 
-Lifecycle rules, review process, and source attribution are included before mass skill creation.
+Reason:
+This structure matches successful patterns already used by Anthropic and OpenAI while remaining simple and extensible.
 
-This reduces the risk of repository decay.
+Recommended permanence:
+Primary storage convention.
 
-#### Strength 4 — Atomic skill strategy
+#### Pattern 4 — Lifecycle governance before scaling
 
-Starting with one small skill candidate is correct.
+Description:
+Every skill must have lifecycle state, review state, and validation criteria before large-scale skill accumulation begins.
 
-This allows the workflow to validate the architecture before scaling.
+Reason:
+Without governance, the repository becomes a prompt dump.
 
-### Critical Risks
+Recommended permanence:
+Mandatory repository governance rule.
 
-#### Risk 1 — Prompt dump degeneration
+#### Pattern 5 — Atomic skills first
 
-Without strong review enforcement, the skills folder may become a random collection of prompts.
+Description:
+The first skills must remain small and focused.
 
-Mitigation:
-No skill becomes active without review.
+Reason:
+Small skills validate architecture faster and reduce complexity.
 
-#### Risk 2 — Overengineering before validation
+Recommended permanence:
+Default skill design principle.
 
-The project may drift into runtime systems, databases, orchestration engines, semantic search, or UI work before the first skill is validated.
+#### Pattern 6 — Reuse-first research workflow
 
-Mitigation:
-The next repository change must only create the six document files and one draft skill candidate.
+Description:
+Before inventing a new workflow or skill, the system must inspect existing open-source repositories and extract reusable patterns.
 
-#### Risk 3 — Excessive abstraction
+Reason:
+Most useful workflow primitives already exist somewhere in open source.
 
-The architecture could become too theoretical if no real skills are tested.
+Recommended permanence:
+Mandatory workflow rule.
 
-Mitigation:
-The first skill candidate must be completed and reviewed before expanding categories.
+#### Pattern 7 — Generated vs committed vs reviewed vs active state separation
 
-#### Risk 4 — Adapter explosion
+Description:
+The system must distinguish:
+- generated state;
+- committed state;
+- reviewed state;
+- active state.
 
-Supporting too many ecosystems too early may create maintenance chaos.
+Reason:
+AI systems frequently hallucinate execution or blur proposed work with executed work.
 
-Mitigation:
-Adapters remain out-of-scope until the core format stabilizes.
+Recommended permanence:
+Critical operational invariant.
 
-### Review Checklist
+### Reusable Repository Decisions
 
-#### Does the workflow stay document-first?
+#### Decision 1 — First skill candidate
 
-Yes.
+The first official skill candidate should be:
 
-#### Does the workflow separate generated and executed state?
+`github-repository-research`
 
-Yes.
+Reason:
+This skill has the highest leverage because the entire AI Skill System depends on extracting reusable patterns from external repositories.
 
-#### Are execution claims tied to repository evidence?
+#### Decision 2 — First committed specification set
 
-Yes.
+The first repository build phase should create exactly:
+- `docs/SKILL_SPEC.md`
+- `docs/LIFECYCLE.md`
+- `docs/REVIEW_PROCESS.md`
+- `docs/COMPATIBILITY_MODEL.md`
+- `skills/research/github-repository-research/SKILL.md`
+- `skills/research/github-repository-research/references.md`
 
-#### Does the architecture avoid vendor lock-in?
+Reason:
+This is the minimum viable specification layer.
 
-Yes.
+#### Decision 3 — No runtime before first reviewed skill
 
-#### Does the workflow define lifecycle governance?
+No runtime, orchestration engine, automation layer, or local execution should be built before the first skill successfully passes review.
 
-Yes.
+Reason:
+The architecture must validate the skill model first.
 
-#### Does the workflow avoid premature automation?
+### Recommended Knowledge-Library Entries
 
-Yes.
+Future knowledge-library candidates:
 
-#### Is there at least one real skill candidate?
+1. `document-first-mvp.md`
+2. `tool-neutral-skill-architecture.md`
+3. `skill-lifecycle-governance.md`
+4. `reuse-first-open-source-research.md`
+5. `state-separation-in-ai-systems.md`
+6. `atomic-skill-design.md`
 
-Yes.
+### Librarian Decision
 
-#### Is the first skill candidate small enough?
+This workflow produced multiple reusable architectural and operational patterns that should become part of the long-term AI Skill System knowledge base.
 
-Yes.
+The workflow successfully validated the following:
+- multi-agent document workflow;
+- repository-first execution model;
+- reusable skill architecture direction;
+- governance-before-scale strategy.
 
-### Reviewer Decision
-
-Approved for the next repository phase.
-
-The next valid repository action is:
-Create the six documentation files and the first draft skill candidate exactly as defined in the Coder-Spec output.
-
-No additional architecture expansion is recommended before the first skill passes review.
+The next repository phase should move from workflow design into actual repository artifact creation using the Coder-Spec file list.
