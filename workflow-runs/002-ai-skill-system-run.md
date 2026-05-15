@@ -9,7 +9,7 @@ Execution state:
 - No code has been written.
 - No implementation has been tested.
 - No automation has been added.
-- Current stage: Pre-Architect.
+- Current stage: Research Agent completed.
 
 Purpose:
 Run the first real document-first agent workflow for the AI Skill System concept.
@@ -171,3 +171,155 @@ The AI Skill System should start as a document-first repository framework for ca
 The MVP should not attempt to build software yet.
 
 The first concrete output should be a stable skill specification format and repository structure.
+
+---
+
+## 3. Research Agent Output
+
+Role:
+Research Agent
+
+Responsibility:
+Search for existing reusable patterns, open-source examples, documentation, and architecture ideas before designing from scratch.
+
+### Search Scope
+
+#### GitHub
+
+Reviewed public skill repositories and catalogs:
+- anthropics/skills
+- openai/skills
+- sickn33/antigravity-awesome-skills
+- VoltAgent/awesome-agent-skills
+- JayLZhou/Awesome-Agent-Skills
+
+#### Official Documentation
+
+Official or primary references found:
+- Anthropic Agent Skills repository and linked Agent Skills specification
+- OpenAI Skills Catalog for Codex
+- Agent Skills open standard reference
+
+#### Community Sources
+
+Community references found:
+- Antigravity Awesome Skills collection
+- VoltAgent Awesome Agent Skills catalog
+- JayLZhou Awesome Agent Skills research catalog
+
+#### Existing Tools or Products
+
+Existing ecosystem patterns found:
+- Claude skills use folder-based skills with SKILL.md files.
+- Codex skills use folders of instructions, scripts, and resources.
+- Community catalogs organize skills by tool, topic, framework, and task type.
+- Research catalogs classify skills by lifecycle: representation, acquisition, retrieval, selection, evolution, and governance.
+
+### Findings
+
+#### Finding 1 — Skill as a folder-based operational unit
+
+Anthropic defines skills as folders containing instructions, scripts, and resources that Claude loads dynamically for specialized tasks. The Anthropic repository also shows a simple creation model: a skill is a folder with a SKILL.md file containing YAML frontmatter and instructions.
+
+Implication for this project:
+The AI Skill System should use a folder-based unit as the default mental model.
+
+#### Finding 2 — Skill as reusable capability package for Codex
+
+OpenAI's skills repository defines Agent Skills as folders of instructions, scripts, and resources that AI agents can discover and use for specific tasks. It frames the principle as write once, use everywhere.
+
+Implication for this project:
+The AI Skill System should not be Claude-only. It should be tool-neutral first, with compatibility layers for Codex, Claude, ChatGPT, and future agents.
+
+#### Finding 3 — Community catalogs prove the category problem
+
+VoltAgent's catalog contains 1000+ agent skills across official and community sources and explicitly lists compatibility across Claude Code, Codex, Gemini CLI, Cursor, and more.
+
+Implication for this project:
+A skill system needs classification, tags, quality markers, compatibility fields, and security review status. A flat folder dump will become garbage quickly.
+
+#### Finding 4 — Research taxonomy gives the lifecycle model
+
+The JayLZhou Awesome-Agent-Skills catalog follows a lifecycle perspective: skill representation, skill acquisition, skill retrieval and selection, skill evolution and governance.
+
+Implication for this project:
+The AI Skill System should not only store skills. It must define the full lifecycle: create, review, index, retrieve, use, evaluate, improve, retire.
+
+#### Finding 5 — Brainstorming skill confirms small atomic skills are useful
+
+The antigravity-awesome-skills brainstorming example is a single skill folder with a SKILL.md file.
+
+Implication for this project:
+The first MVP skill should be small and atomic, not a giant universal meta-agent.
+
+### Reusable Patterns
+
+#### Pattern 1 — Folder + SKILL.md
+
+Each skill should be a directory with one primary instruction file.
+
+Proposed local convention:
+- SKILL.md for the main skill instructions
+- README.md only for human-facing explanation if needed
+- examples/ for examples
+- tests/ or validation/ for future checks
+- references.md for source links and attribution
+
+#### Pattern 2 — Metadata frontmatter
+
+Each skill should include machine-readable metadata at the top.
+
+Minimum fields:
+- name
+- description
+- category
+- target_agent
+- compatibility
+- inputs
+- outputs
+- safety_level
+- source
+- status
+
+#### Pattern 3 — Lifecycle fields
+
+Every skill should have lifecycle status.
+
+Proposed statuses:
+- draft
+- candidate
+- reviewed
+- active
+- deprecated
+- retired
+
+#### Pattern 4 — Reuse-first research step
+
+Before creating a new skill, the system should search existing skill repositories and extract patterns.
+
+This becomes a permanent rule:
+Do not invent a skill from scratch before checking existing examples.
+
+#### Pattern 5 — Tool-neutral core with adapters
+
+The core skill format should be tool-neutral.
+
+Adapters can later generate:
+- Claude-compatible skill folders
+- Codex-compatible skill folders
+- ChatGPT Custom GPT instruction blocks
+- project-specific agent prompts
+
+### Research Agent Decision
+
+The AI Skill System should adopt a tool-neutral folder-based skill model inspired by Anthropic and OpenAI, but add stronger lifecycle governance, classification, and review controls.
+
+The MVP should create a first internal skill format before building any runtime.
+
+The next architecture step should define:
+- repository structure;
+- skill file schema;
+- lifecycle model;
+- review process;
+- compatibility/adaptation strategy;
+- first atomic skill candidate.
