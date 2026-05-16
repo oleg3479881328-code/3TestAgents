@@ -30,9 +30,19 @@ Without deterministic workflow packets:
 
 ---
 
-## 2. Canonical Workflow Packet
+## 2. Dual-Mode Workflow Model
 
-Default workflow run structure:
+The repository supports two workflow execution modes.
+
+### FULL_PACKET
+
+Use for:
+- architecture changes;
+- governance updates;
+- reusable workflow systems;
+- coordination-heavy runs.
+
+Canonical structure:
 
 ```text
 workflow-runs/<run-id>/
@@ -46,7 +56,34 @@ workflow-runs/<run-id>/
   07_HANDOFF_NOTE.md
 ```
 
-Compact single-file workflow records are allowed only for small tasks if they preserve the same logical sections.
+### COMPACT_PACKET
+
+Use for:
+- small tasks;
+- validations;
+- lightweight governance work;
+- focused reviews.
+
+Allowed structures:
+
+```text
+workflow-runs/<run-id>.md
+```
+
+or
+
+```text
+workflow-runs/<run-id>/compact-workflow.md
+```
+
+Compact records must still contain:
+- input;
+- brief;
+- review;
+- decisions;
+- risks;
+- next step;
+- handoff context.
 
 ---
 
@@ -156,7 +193,7 @@ The handoff note must never replace:
 
 A workflow run is considered structurally complete only if:
 
-- required artifacts exist;
+- required artifacts exist for the selected mode;
 - review artifact exists;
 - handoff artifact exists;
 - workflow log updated when needed;
@@ -165,7 +202,18 @@ A workflow run is considered structurally complete only if:
 
 ---
 
-## 8. Current Repository Policy
+## 8. Validation Result
+
+Workflow Run 003 validated the dual-mode model.
+
+Confirmed findings:
+- FULL_PACKET improves deterministic governance;
+- COMPACT_PACKET reduces unnecessary workflow overhead;
+- governance scales better with dual execution modes.
+
+---
+
+## 9. Current Repository Policy
 
 Current project phase:
 Document-first AI Skill Infrastructure.
@@ -184,7 +232,7 @@ Forbidden priorities:
 
 ---
 
-## 9. Standard Decision
+## 10. Standard Decision
 
 `WORKFLOW_ARTIFACT_STANDARD.md` is now a core governance document.
 
