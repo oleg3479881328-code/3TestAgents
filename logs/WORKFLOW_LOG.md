@@ -65,6 +65,7 @@ Created the first real workflow run for the AI Skill System.
 - Completed Coder-Spec workflow stage
 - Completed Reviewer workflow stage
 - Completed Librarian workflow stage
+- Restored `workflow-runs/002-ai-skill-system-run.md` as compact full record after `[unchanged]` placeholders were detected.
 
 ### Specification Layer
 
@@ -81,6 +82,15 @@ Created:
 - `skills/research/github-repository-research/references.md`
 - `skills/research/github-repository-research/validation/REVIEW.md`
 
+Patched:
+- `skills/research/github-repository-research/SKILL.md` to version `0.1.1`
+- status changed to `candidate`
+- review_status changed to `reviewed_with_required_improvements`
+- added evidence rules
+- added pattern scoring model
+- added adaptation rules
+- added strict output format
+
 ### Governance Layer
 
 Created:
@@ -95,6 +105,13 @@ Created:
 - `knowledge-library/patterns/document-first-mvp.md`
 - `knowledge-library/patterns/tool-neutral-core.md`
 - `knowledge-library/patterns/state-separation-in-ai-systems.md`
+
+### Migration Layer
+
+Created and updated:
+- `docs/MIGRATION_SNAPSHOT.md`
+
+The migration snapshot is now the main entry point for any new chat, agent, or continuation session.
 
 ## Key Decisions
 
@@ -118,6 +135,10 @@ The system starts with small focused reusable skills instead of giant universal 
 
 Executed state must always map to committed repository artifacts.
 
+### Decision 6 — Migration snapshot as entry point
+
+`docs/MIGRATION_SNAPSHOT.md` is the default entry file for any fresh chat or new project continuation context.
+
 ## Resulting State
 
 The repository now contains:
@@ -128,7 +149,9 @@ The repository now contains:
 - registry system;
 - knowledge library;
 - first reusable skill candidate;
-- reusable architecture patterns.
+- reusable architecture patterns;
+- restored full workflow record;
+- migration snapshot.
 
 ## Major Risks Identified
 
@@ -136,7 +159,8 @@ The repository now contains:
 - premature runtime expansion;
 - vendor lock-in;
 - fake execution claims;
-- governance collapse during scaling.
+- governance collapse during scaling;
+- documentation integrity drift.
 
 ## Lessons Learned
 
@@ -156,18 +180,25 @@ Small atomic skills are easier to validate than giant meta-agents.
 
 Knowledge extraction should be separated from executable skills.
 
+### Lesson 5
+
+Large file rewrites can accidentally damage workflow artifacts. Integrity checks are mandatory after major updates.
+
 ## Current Repository Phase
 
 Phase:
 Document-first AI Skill Infrastructure.
 
+Subphase:
+Governance stabilization and first skill validation.
+
 ## Current Priorities
 
-1. Stabilize the first skill candidate.
-2. Improve review quality.
-3. Expand reusable governance patterns.
+1. Run the second review cycle for `github-repository-research`.
+2. Decide whether `github-repository-research` can move from `candidate` to `active`.
+3. Keep review quality stronger than growth speed.
 4. Avoid premature runtime implementation.
-5. Build reusable operational memory.
+5. Keep `docs/MIGRATION_SNAPSHOT.md` updated as the canonical entry point.
 
 ## Forbidden Priorities
 
@@ -178,4 +209,5 @@ Do not prioritize yet:
 - automation frameworks;
 - marketplaces;
 - semantic search;
-- backend infrastructure.
+- backend infrastructure;
+- mass skill creation.
