@@ -52,6 +52,7 @@ Allowed review states:
 | implementation-handoff-packet | implementation | candidate | reviewed_with_required_improvements | codex, chatgpt, claude | 0.1.0 | skills/implementation/implementation-handoff-packet/SKILL.md |
 | codex-execution-review | review | candidate | reviewed_with_required_improvements | codex, chatgpt, claude | 0.1.0 | skills/review/codex-execution-review/SKILL.md |
 | repository-memory-update | memory | candidate | reviewed_with_required_improvements | chatgpt, codex, claude | 0.1.0 | skills/memory/repository-memory-update/SKILL.md |
+| skill-runtime-router | orchestration | candidate | reviewed_with_required_improvements | chatgpt, codex, claude | 0.1.0 | skills/orchestration/skill-runtime-router/SKILL.md |
 
 ## Future Registry Fields
 
