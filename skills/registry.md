@@ -47,6 +47,7 @@ Allowed review states:
 | Skill Name | Category | Status | Review Status | Compatibility | Version | Path |
 |---|---|---|---|---|---|---|
 | github-repository-research | research | candidate | reviewed_with_required_improvements | chatgpt, codex, claude | 0.1.1 | skills/research/github-repository-research/SKILL.md |
+| pre-architecture-brainstorming | design | candidate | reviewed_with_required_improvements | chatgpt, codex, claude | 0.1.0 | skills/design/pre-architecture-brainstorming/SKILL.md |
 
 ## Future Registry Fields
 
