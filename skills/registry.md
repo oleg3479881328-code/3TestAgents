@@ -49,6 +49,7 @@ Allowed review states:
 | github-repository-research | research | candidate | reviewed_with_required_improvements | chatgpt, codex, claude | 0.1.1 | skills/research/github-repository-research/SKILL.md |
 | pre-architecture-brainstorming | design | candidate | reviewed_with_required_improvements | chatgpt, codex, claude | 0.1.0 | skills/design/pre-architecture-brainstorming/SKILL.md |
 | multi-agent-design-review | review | candidate | reviewed_with_required_improvements | chatgpt, codex, claude | 0.1.0 | skills/review/multi-agent-design-review/SKILL.md |
+| implementation-handoff-packet | implementation | candidate | reviewed_with_required_improvements | codex, chatgpt, claude | 0.1.0 | skills/implementation/implementation-handoff-packet/SKILL.md |
 
 ## Future Registry Fields
 
